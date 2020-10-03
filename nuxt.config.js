@@ -17,32 +17,37 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'Grab Liberty icon pack for free. Customise your desktop and support Belarus people struggling for FREEDOM.',
+          'Grab Liberty icon pack for free. Customize your desktop and support Belarus people struggling for FREEDOM.',
       },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '@/assets/img/favicon.png' },
       {
         rel: 'apple-touch-icon',
         sizes: '144x144',
-        href: '/favicon.png',
+        href: '@/assets/img/favicon.png',
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '32x32',
-        href: '/favicon.png',
+        href: '@/assets/img/favicon.png',
       },
       {
         rel: 'icon',
         type: 'image/png',
         sizes: '16x16',
-        href: '/favicon.png',
+        href: '@/assets/img/favicon.png',
       },
       {
         rel: 'stylesheet',
         href:
           'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap',
+      },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap',
       },
     ],
   },

@@ -1,13 +1,33 @@
 <template>
   <div class="container">
+    <header class="header">
+      <div class="header__logo">#FreeBelarusIcons</div>
+      <div class="header__button" @click="modal = !modal">Donate Crypto</div>
+      <a
+        class="header__button"
+        href="https://www.buymeacoffee.com/freebelicons"
+        target="_blank"
+        >By me a Coffee</a
+      >
+    </header>
     <div class="main">
-      <img class="main__click" src="@/assets/img/click.png" alt="" />
+      <div class="main__logo" :class="icon ? 'hidden' : ''">
+        #FreeBelarusIcons
+      </div>
+      <img
+        class="main__click"
+        :class="icon ? 'hidden' : ''"
+        src="@/assets/img/click.png"
+        alt=""
+      />
       <div class="main__top" :class="icon ? 'main__top_active' : ''">
         <div class="main__left">
           <h1 class="main__title">Inspired by the free people of Belarus.</h1>
           <p class="main__text">
-            Grab Liberty icon pack for free. Customise your desktop and support
-            Belarus people struggling for FREEDOM. <br />
+            Grab Liberty icon pack for free. Customize your desktop and support
+            Belarus people struggling for FREEDOM.
+          </p>
+          <p class="main__text">
             Follow us on
             <a
               class="main__link"
@@ -31,20 +51,6 @@
         class="button"
         >Get pack for free</a
       >
-      <div class="donate">
-        <div
-          class="donate__link donate__link_theme_crypto"
-          @click="modal = !modal"
-        >
-          Donate Crypto
-        </div>
-        <a
-          class="donate__link donate__link_theme_coffee"
-          href="https://www.buymeacoffee.com/freebelicons"
-          target="_blank"
-          >By me a Coffee</a
-        >
-      </div>
     </div>
     <div class="guide">
       <h2 class="guide__title">How to change app icons on iOS 14?</h2>
@@ -84,13 +90,49 @@
       </div>
     </div>
     <footer class="footer">
-      <h2 class="footer__title">Free Belarus</h2>
-      <div class="footer__text">Get our pack and support Belarus!</div>
-      <div class="footer__stats">
-        <div class="footer__item">
-          <div class="footer__item-num">{{ count }}</div>
-          <div class="footer__item-text">People received our pack</div>
-        </div>
+      <div class="footer__item">
+        <h2 class="footer__title">Free Belarus</h2>
+        <div class="footer__text">Get our pack and support Belarus!</div>
+      </div>
+
+      <div class="footer__item">
+        <h2 class="footer__title">{{ count }}</h2>
+        <div class="footer__text">People received our pack</div>
+      </div>
+
+      <div class="footer__item">
+        <h2 class="footer__title">Follow Us!</h2>
+        <div class="footer__text">And subscribe for freshest news</div>
+      </div>
+      <div class="socials">
+        <a
+          class="socials__item"
+          href="https://twitter.com/BelarusIcons"
+          target="_blank"
+        >
+          <Twitter />
+        </a>
+        <a
+          class="socials__item"
+          href="https://github.com/freebelarusicons"
+          target="_blank"
+        >
+          <Github />
+        </a>
+        <a
+          class="socials__item"
+          href="https://www.producthunt.com/@belarusiconss"
+          target="_blank"
+        >
+          <Ph />
+        </a>
+        <a
+          class="socials__item"
+          href="https://www.buymeacoffee.com/freebelicons"
+          target="_blank"
+        >
+          <Coffee />
+        </a>
       </div>
     </footer>
     <div class="wrapper" :class="modal ? 'wrapper_open' : ''">
@@ -140,9 +182,13 @@
 
 <script>
 import Close from '@/assets/img/Close.svg'
+import Twitter from '@/assets/img/Twitter.svg'
+import Github from '@/assets/img/Github.svg'
+import Ph from '@/assets/img/Ph.svg'
+import Coffee from '@/assets/img/Coffee.svg'
 
 export default {
-  components: { Close },
+  components: { Close, Twitter, Github, Ph, Coffee },
   data: () => {
     return {
       icon: false,
@@ -154,7 +200,7 @@ export default {
   mounted() {
     this.getDownloadsCount()
 
-    setInterval(this.getDownloadsCount, 60000)
+    setInterval(this.getDownloadsCount, 300000)
   },
   methods: {
     async copyText(text) {

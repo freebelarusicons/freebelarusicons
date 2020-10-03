@@ -1,7 +1,7 @@
 @import 'media';
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: $bg;
 
   * {
@@ -19,22 +19,112 @@ button {
   background-repeat-y: no-repeat;
 }
 
-.main {
-  overflow: hidden;
-  padding: 100px 10px 0;
-  position: relative;
+.header {
+  padding: 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #f5f8fa;
+  z-index: 1;
 
   @include size-desktop {
-    padding: 250px 0 0;
+    height: 100px;
+    padding: 33px 100px;
+    justify-content: flex-end;
+  }
+
+  &__logo {
+    display: none;
+
+    @include size-desktop {
+      display: block;
+      position: absolute;
+      left: 100px;
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 140%;
+    }
+  }
+
+  &__button {
+    height: 30px;
+    width: 120px;
+    box-sizing: border-box;
+    transition: $transition-1;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 99px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    text-decoration: none;
+    color: #000;
+
+    @include size-desktop {
+      height: 40px;
+      width: 216px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+
+    &:not(:last-child) {
+      @include size-desktop {
+        margin-right: 40px;
+      }
+    }
+
+    &:hover {
+      background: $primary;
+      border-color: $primary;
+      color: white;
+    }
+  }
+}
+
+.main {
+  overflow: hidden;
+  padding: 60px 10px 80px;
+  position: relative;
+  min-height: 730px;
+
+  @include size-desktop {
+    min-height: unset;
+  }
+
+  &__logo {
+    transition: $transition-1;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 140%;
+    margin-bottom: 12px;
+
+    @include size-desktop {
+      display: none;
+    }
+  }
+
+  @include size-desktop {
+    padding: 88px 0 0;
     margin: 0 auto;
     max-width: 1200px;
     overflow: unset;
   }
 
   &__click {
+    transition: $transition-1;
     position: absolute;
     right: 55px;
-    top: 15px;
+    top: 0;
 
     @include size-desktop {
       display: none;
@@ -51,7 +141,7 @@ button {
     }
 
     &_active {
-      transform: translateX(-84%);
+      transform: translateX(-79%);
       color: transparent;
 
       @include size-desktop {
@@ -65,38 +155,41 @@ button {
     padding-right: 34px;
 
     @include size-desktop {
-      max-width: 544px;
+      max-width: 630px;
     }
   }
 
   &__title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 32px;
     line-height: 140%;
-    margin-bottom: 80px;
+    margin-bottom: 32px;
 
     @include size-desktop {
       font-size: 42px;
       line-height: 140%;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
   }
 
   &__text {
-    font-weight: 500;
     font-size: 16px;
-    line-height: 140%;
-    margin-bottom: 165px;
+    line-height: 160%;
+    margin-bottom: 40px;
 
     @include size-desktop {
       font-size: 24px;
-      margin-bottom: 40px;
+      line-height: 140%;
+      margin-bottom: 24px;
     }
   }
 
   &__link {
     transition: $transition-1;
     color: $blue;
+    font-weight: bold;
 
     &:hover {
       color: lighten($blue, 20%);
@@ -105,31 +198,33 @@ button {
 
   &__iphone {
     position: absolute;
-    right: -249px;
-    top: -58px;
+    right: -246px;
+    top: -80px;
 
     @include size-desktop {
       right: 0;
+      top: -60px;
     }
   }
 }
 
 .button {
+  margin: 0 auto;
+  margin-top: 170px;
   appearance: none;
   border: unset;
-  background: $primary;
-  filter: drop-shadow(4px 4px 10px rgba(255, 18, 18, 0.2));
+  background: #000;
+  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.2));
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;
   color: #fff;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   width: 300px;
   height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
   border-radius: 99px;
   cursor: pointer;
   text-decoration: none;
@@ -137,63 +232,20 @@ button {
 
   @include size-desktop {
     margin: 0;
+    margin-top: 80px;
   }
 
   &:hover {
-    background: white;
-    color: #000;
-  }
-}
-
-.donate {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 40px;
-
-  @include size-desktop {
-    max-width: 300px;
-  }
-
-  &__link {
-    font-size: 16px;
-    line-height: 19px;
-    text-decoration-line: underline;
-    transition: $transition-1;
-    cursor: pointer;
-
-    @include size-desktop {
-      font-size: 20px;
-      line-height: 23px;
-    }
-
-    &_theme {
-      &_crypto {
-        color: #d2a801;
-
-        &:hover {
-          color: lighten(#d2a801, 20%);
-        }
-      }
-
-      &_coffee {
-        color: #000;
-
-        &:hover {
-          color: lighten(#000, 20%);
-        }
-      }
-    }
+    background: $primary;
   }
 }
 
 .guide {
-  margin-top: 80px;
   padding: 0 24px;
 
   @include size-desktop {
     padding: 0;
-    margin-top: 180px;
+    margin-top: 130px;
   }
 
   &__title {
@@ -235,8 +287,8 @@ button {
   margin-bottom: 40px;
 
   @include size-desktop {
-    margin-top: 140px;
-    margin-bottom: 140px;
+    margin-top: 72px;
+    margin-bottom: 100px;
   }
 
   &__stats {
@@ -252,6 +304,7 @@ button {
     font-size: 32px;
     line-height: 37px;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
   }
 
   &__text {
@@ -260,24 +313,18 @@ button {
     text-align: center;
     letter-spacing: 0.05em;
     margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
   }
 
   &__item {
-    margin-top: 24px;
     text-align: center;
 
-    &-num {
-      font-weight: bold;
-      font-size: 42px;
-      line-height: 49px;
-      letter-spacing: 0.05em;
-      margin-bottom: 12px;
-    }
+    &:not(:last-child) {
+      margin-top: 24px;
 
-    &-text {
-      font-size: 16px;
-      line-height: 140%;
-      letter-spacing: 0.05em;
+      @include size-desktop {
+        margin-top: 46px;
+      }
     }
   }
 }
@@ -286,7 +333,7 @@ button {
   max-width: 90%;
   margin: 0 auto;
   padding: 16px;
-  background: #fff;
+  background: #f5f8fa;
   box-shadow: 4px 4px 10px #c7c7cc;
   border-radius: 10px;
   position: relative;
@@ -452,4 +499,31 @@ button {
       transform: translate(0, 0);
     }
   }
+}
+
+.socials {
+  margin-top: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+
+  @include size-desktop {
+    max-width: 350px;
+    margin: 0 auto;
+    margin-top: 24px;
+  }
+
+  &__item {
+    text-decoration: none;
+    cursor: pointer;
+
+    svg {
+      filter: drop-shadow(0 4px 10px rgba(255, 18, 18, 0.2));
+    }
+  }
+}
+
+.hidden {
+  opacity: 0;
 }
