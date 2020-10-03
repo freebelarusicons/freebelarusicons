@@ -167,7 +167,7 @@ export default {
     getDownloadsCount() {
       this.$axios
         .$get(
-          'https://api.github.com/repos/freebelarusicons/freebelarusicons/releases/assets/26508140'
+          'https://api.github.com/repos/freebelarusicons/freebelarusicons/releases/assets/26508810'
         )
         .then((data) => {
           this.count = data.download_count
