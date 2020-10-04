@@ -528,3 +528,15 @@ button {
 .hidden {
   opacity: 0;
 }
+
+.producthunt {
+  position: fixed;
+  left: calc(50% - 125px);
+  top: auto;
+  right: auto;
+  bottom: 2%;
+
+  @include size-desktop {
+    left: 2%;
+  }
+}
