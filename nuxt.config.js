@@ -42,12 +42,7 @@ export default {
       {
         rel: 'stylesheet',
         href:
-          'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap',
-      },
-      {
-        rel: 'stylesheet',
-        href:
-          'https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap',
+          'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&display=swap',
       },
     ],
   },
